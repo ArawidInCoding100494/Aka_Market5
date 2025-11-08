@@ -67,3 +67,83 @@
         }
     }
 }
+
+
+@media(max-width: 415px){
+    .brandDetails{
+
+    &-header{
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        // text-transform: capitalize;
+        padding: 10px 0;
+
+        
+
+        // &-left{
+        //     font-weight: bold;
+        //     background: white;
+        //     padding: 6px;
+        //     border-radius: 5px;
+        // }
+
+        &-right{
+            width: 75%;
+            display: flex;
+            align-items: center;
+            justify-content:  end;
+
+
+
+            &-title{
+                font-size: 15px;
+            }
+
+
+
+            a{
+            margin-left: 2px;
+        }
+        }
+    }
+
+
+    &-card{
+        // display: flex;
+        // flex-direction: column;
+        // background: white;
+        // margin: 15px 0;
+        padding: 25px 5px;
+        // border-radius: 10px;
+        // text-transform: capitalize;
+
+        // &-up{
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     margin-bottom: 10px;
+
+
+        //     small{
+        //         margin-left: 20px;
+        //     }
+        // }
+
+        &-down{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+
+
+            .edit{
+                // cursor: pointer;
+                // color: black;
+                // border: var(--bor);
+                // border-radius: 6px;
+                padding: 6px;
+            }
+        }
+    }
+}
+}

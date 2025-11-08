@@ -51,3 +51,54 @@
 
    
 }
+
+
+@media(max-width: 415px) {
+    .totalBase{
+    
+
+
+    // &-up{
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     margin: 15px 0;
+
+    //     &-title{
+    //         text-transform: capitalize;
+    //         font-weight: bold;
+    //         margin-right: 15px;
+    //     }
+    // }
+
+
+    &-down{
+        display: flex;
+        flex-direction: column;
+
+
+        &-card{
+            display: block;
+            border: var(--bor);
+            padding: 10px 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--bc);
+            color: black;
+            text-transform: capitalize;
+            font-weight: bold;
+
+
+            &:hover{
+                background: white;
+                color: cadetblue;
+            }
+
+            
+        }
+    }
+
+   
+}
+}

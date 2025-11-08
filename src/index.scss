@@ -16,6 +16,14 @@
     margin: 0 auto;
 }
 
+@media(max-width: 415px){
+    .container{
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid crimson;
+}
+}
+
 
 .btn{
     padding: 6px;

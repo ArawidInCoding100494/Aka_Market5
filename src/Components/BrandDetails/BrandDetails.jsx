@@ -28,7 +28,7 @@ const BrandDetails = () => {
 
 
      <div className="brandDetails-header-right">
-           <h3 className="brandDetails-header-title">yangi maxsulot qoshing</h3>
+           <h3 className="brandDetails-header-right-title">yangi maxsulot</h3>
         <nav>
           <NavLink to={`/brand/${id}/CreateProduct`} className="btn">
             qoshish
