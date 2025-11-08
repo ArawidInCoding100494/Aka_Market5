@@ -7,7 +7,7 @@ export const BrandProvider = ({ children }) => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
-  const url = "/api/brands";
+  const url = "https://json-api.uz/api/project/AkaMarket/brands";
 
   useEffect(() => {
     const getDate = async () => {
