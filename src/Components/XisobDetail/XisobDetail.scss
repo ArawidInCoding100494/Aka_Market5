@@ -1,0 +1,45 @@
+.xisobDetail{
+    padding: 20px 0;
+
+
+    &-xisobot{
+        h4{
+
+            strong{
+                text-transform: capitalize;
+                margin-right: 15px;
+                text-decoration: underline;
+                font-size: 25px;
+            }
+        }
+    }
+
+
+    &-card{
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        margin: 15px 0;
+
+
+        &-header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            h4{
+                text-transform: capitalize;
+                margin-right: 15px;
+            }
+        }
+
+        &-body{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            text-transform: capitalize;
+        }
+    }
+}

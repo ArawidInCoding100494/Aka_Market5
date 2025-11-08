@@ -1,0 +1,149 @@
+{
+  "brands": [
+    {
+      "id": "9e98decf-de10-478e-b032-620e76096e48",
+      "brandName": "polvon",
+      "products": [
+        {
+          "id": "5abff8c9-2373-41e9-a699-c8ae4d3a6a82",
+          "maxName": "derll",
+          "cAmount": 44,
+          "currentAmount": 0,
+          "cPrice": 14000,
+          "itogo": 56000,
+          "sana": "2025-11-04",
+          "history": [
+            {
+              "type": "add",
+              "addAmount": 31,
+              "addPrice": 14000,
+              "itogo": 434000,
+              "sana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 3,
+              "sellPrice": 18000,
+              "itogo": 54000,
+              "profit": 12000,
+              "sellSana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 3,
+              "sellPrice": 23000,
+              "itogo": 69000,
+              "profit": 27000,
+              "sellSana": "2025-11-05"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 25,
+              "sellPrice": 16000,
+              "itogo": 400000,
+              "profit": 50000,
+              "sellSana": "2025-11-05"
+            }
+          ]
+        },
+        {
+          "id": "b2dbd5dd-a9b6-4e9f-9c69-47b7f8a9f549",
+          "maxName": "arra",
+          "cAmount": 12,
+          "currentAmount": 9,
+          "cPrice": 16000,
+          "itogo": 192000,
+          "sana": "2025-11-04",
+          "history": [
+            {
+              "type": "add",
+              "addAmount": 12,
+              "addPrice": 16000,
+              "itogo": 192000,
+              "sana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 3,
+              "sellPrice": 20000,
+              "itogo": 60000,
+              "profit": 12000,
+              "sellSana": "2025-11-04"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "324ff558-05f8-4a6f-9255-b74ff49130d1",
+      "brandName": "epa",
+      "products": [
+        {
+          "id": "9164bc52-bf23-4360-963e-8258444cbe7e",
+          "maxName": "nasos",
+          "cAmount": 5,
+          "currentAmount": 5,
+          "cPrice": 90000,
+          "itogo": 450000,
+          "sana": "2025-11-04",
+          "history": [
+            {
+              "type": "add",
+              "addAmount": 5,
+              "addPrice": 90000,
+              "itogo": 450000,
+              "sana": "2025-11-04"
+            }
+          ]
+        },
+        {
+          "id": "2bacffcc-edf8-4fe3-a5bf-f44131684944",
+          "maxName": "plisos",
+          "cAmount": 14,
+          "currentAmount": 9,
+          "cPrice": 44000,
+          "itogo": 616000,
+          "sana": "2025-11-04",
+          "history": [
+            {
+              "type": "add",
+              "addAmount": 14,
+              "addPrice": 44000,
+              "itogo": 616000,
+              "sana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 2,
+              "sellPrice": 60000,
+              "itogo": 120000,
+              "profit": 32000,
+              "sellSana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 1,
+              "sellPrice": 50000,
+              "itogo": 50000,
+              "profit": 6000,
+              "sellSana": "2025-11-04"
+            },
+            {
+              "type": "sell",
+              "sellAmount": 2,
+              "sellPrice": 56000,
+              "itogo": 112000,
+              "profit": 24000,
+              "sellSana": "2025-11-05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95402e1c-dbdb-4af1-a026-0285ab2a0b79",
+      "brandName": "u7t5uu7",
+      "products": []
+    }
+  ]
+}

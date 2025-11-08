@@ -1,0 +1,14 @@
+.xisobotlar{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    
+
+
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

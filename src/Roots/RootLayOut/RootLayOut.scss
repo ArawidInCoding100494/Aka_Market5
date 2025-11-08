@@ -1,0 +1,36 @@
+.rootLayOut{
+
+
+    &-title{
+        text-align: center;
+        padding: 15px 0;
+        text-transform: capitalize;
+        background: var(--bc);
+    }
+
+    &-sides{
+        background: var(--bc);
+
+
+
+        &-up{
+        padding: 15px 5px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        font-weight: bold;
+        background: white;
+
+
+        a{
+            margin-left: 15px;
+        }
+        }
+
+
+
+        &-down{
+        border: var(--bor);
+        padding: 10px;
+        }
+    }
+}

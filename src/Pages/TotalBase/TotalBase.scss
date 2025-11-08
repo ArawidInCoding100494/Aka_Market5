@@ -1,0 +1,53 @@
+.totalBase{
+    
+
+
+    &-up{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0;
+
+        &-title{
+            text-transform: capitalize;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+    }
+
+
+    &-down{
+        background: white;
+        border: var(--bor);
+        margin: 10px auto;
+        padding: 15px 5px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        text-align: center;
+
+
+        &-card{
+            display: block;
+            border: var(--bor);
+            padding: 10px 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--bc);
+            color: black;
+            text-transform: capitalize;
+            font-weight: bold;
+
+
+            &:hover{
+                background: white;
+                color: cadetblue;
+            }
+
+            
+        }
+    }
+
+   
+}
