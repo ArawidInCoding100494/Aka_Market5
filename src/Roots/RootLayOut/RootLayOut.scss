@@ -34,3 +34,16 @@
         }
     }
 }
+
+
+@media(max-width: 415px){
+       .rootLayOut-sides-up.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--bc);
+        z-index: 5;
+
+    }
+}
