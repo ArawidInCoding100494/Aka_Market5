@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.scss'
 
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
@@ -12,7 +12,7 @@ import CreateProduct from './Components/CrateProduct/CreateProduct'
 import TradeDetail from "./Components/TradeDetail/TradeDetail"
 import DailyTrade from "./Pages/DailyTrade/DailyTrade"
 import Xisobotlar from './Pages/Xisobotlar/Xisobotlar'
-import { SoldProvider } from './Contexts/SoldContex/SoldContex'
+// import { SoldProvider } from './Contexts/SoldContex/SoldContex'
 import XisobDetail from './Components/XisobDetail/XisobDetail'
 
 function App() {
@@ -46,9 +46,9 @@ function App() {
   return (
     <>
     <BrandProvider>
-      <SoldProvider>
+      {/* <SoldProvider> */}
         <RouterProvider router={routes}/>
-      </SoldProvider>
+      {/* </SoldProvider> */}
      </BrandProvider>
     </>
   )

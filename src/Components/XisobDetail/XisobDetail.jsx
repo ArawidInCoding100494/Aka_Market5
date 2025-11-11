@@ -18,6 +18,7 @@ const XisobDetail = () => {
       .map((soldProduct) => ({
         productId: product.id,
         productName: product.maxName,
+        cPrice: product.cPrice,
         sellAmount: soldProduct.sellAmount,
         sellPrice: soldProduct.sellPrice,
         itogo: soldProduct.itogo,
@@ -56,7 +57,6 @@ const XisobDetail = () => {
 
         <h5>jami foyda: {totalProfit}</h5>
 
-        {/* <h5>joriy oydagi foyda: {monthlyProfit}</h5> */}
       </div>
 
       {selled.map((item) => (
@@ -70,15 +70,18 @@ const XisobDetail = () => {
             <p>
               soni: <br /> {item.sellAmount}
             </p>
+
+            <p>kelishi: <br /> {item.cPrice} </p>
+
             <p>
               {" "}
-              narxi: <br /> {item.sellPrice}
+              narxi: <br /> {item.sellPrice} $
             </p>
             <p>
-              itogosi: <br /> {item.itogo}
+              itogosi: <br /> {item.itogo} $
             </p>
             <p>
-              foyda: <br /> {item.profit}
+              foyda: <br />  <small>{item.profit}</small> $
             </p>
           </div>
         </div>

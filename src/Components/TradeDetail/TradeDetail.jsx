@@ -97,7 +97,7 @@ const TradeDetail = () => {
                         <form onSubmit={(e) => handelSubmit(e, product)} className="forma">
 
                             <label className="forma-label">
-                                <span className="forma-label-span">soni: <small>{product.currentAmount} ta qolgan</small> </span>
+                                <span className="forma-label-span">soni: <br /> <small>{product.currentAmount} ta qolgan</small> </span>
 
                                 <input 
                                 ref={el => amount.current[product.id] = el}
@@ -107,7 +107,7 @@ const TradeDetail = () => {
                             </label>
 
                             <label className="forma-label">
-                                <span className="forma-label-span">narxi: <small>{product.cPrice} dan kelgan</small> </span>
+                                <span className="forma-label-span">narxi: <br /> <small>{product.cPrice}$ dan kelgan</small> </span>
                                 <input 
                                 ref={el => price.current[product.id] = el}
                                 required

@@ -1,7 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import "./BrandDetails.scss";
 
-import React from "react";
 import { useBrand } from "../../Contexts/BrandContext/BrandContext";
 
 const BrandDetails = () => {
@@ -38,8 +37,9 @@ const BrandDetails = () => {
 
 
       </div>
+
       <h5>jami maxsulotlar soni: {totalAmounts} ta</h5>
-      <h5>jami summa {totalSums}</h5>
+      <h5>jami summa: {totalSums}$</h5>
 
       {brand.products.map((product) => {
 
@@ -55,23 +55,23 @@ const BrandDetails = () => {
             </div>
             <div className="brandDetails-card-down">
               <p>
-                jami kelgani: <br /> {product.cAmount}
+                jami kelgani: <br /> {product.cAmount} ta
               </p>
               <p>
-                omborda: <br /> {product.currentAmount}{" "}
+                omborda: <br /> {product.currentAmount} ta{" "}
               </p>
               <p>
-                narxi: <br /> {product.cPrice}{" "}
+                narxi: <br /> {product.cPrice}${" "}
               </p>
               <strong>
-                itogo: <br /> {product.itogo}
+                itogo: <br /> {product.itogo}$
               </strong>
               <nav>
                 <NavLink
                   className="edit"
                   to={`/brand/${brand.id}/edit/${product.id}`}
                 >
-                  edit: ✍
+                  taxrir: ✍
                 </NavLink>
               </nav>
             </div>
