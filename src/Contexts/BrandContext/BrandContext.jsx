@@ -34,8 +34,29 @@ export const BrandProvider = ({ children }) => {
     getDate();
   }, []);
 
+  const deleteProduct = async (brandId, productId) => {
+  try {
+    const res = await fetch(`${url}/${brandId}/products/${productId}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) throw new Error("Serverdan xatolik keldi");
+
+    setbrands((prevBrands) =>
+      prevBrands.map((brand) =>
+        brand.id === brandId
+          ? { ...brand, products: brand.products.filter((p) => p.id !== productId) }
+          : brand
+      )
+    );
+  } catch (err) {
+    console.error("O‘chirishda xatolik:", err);
+  }
+};
+
+
   return (
-    <BrandContext.Provider value={{ brands, isPending, error, setbrands }}>
+    <BrandContext.Provider value={{ brands, isPending, error, setbrands, deleteProduct }}>
       {children}
     </BrandContext.Provider>
   );

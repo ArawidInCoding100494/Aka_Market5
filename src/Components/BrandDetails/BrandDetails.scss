@@ -135,15 +135,33 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
 
+            nav{
+                width: 120%;
+                display: flex;
+                justify-content: space-between;
 
-            .edit{
-                // cursor: pointer;
-                // color: black;
-                border: none;
-                // border-radius: 6px;
-                padding: 3px;
-                font-size: 10px;
+
+                button{
+                    background-color: white;
+                    border: 1px solid cadetblue;
+                    padding: 5px;
+                    border-radius: 6px;
+
+                }
+
+                .edit{
+                    // cursor: pointer;
+                    // color: black;
+                    border: none;
+                    // border-radius: 6px;
+                    padding: 3px;
+                    font-size: 10px;
+                    border: 1px solid cadetblue;
+
+                }
             }
+                
+            
         }
     }
 }

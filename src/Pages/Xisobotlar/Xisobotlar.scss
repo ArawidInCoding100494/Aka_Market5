@@ -1,14 +1,118 @@
 .xisobotlar{
+    
+    &-title{
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &-brands{
+    border-bottom: 2px solid white;
+    padding-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    margin: 20px auto;
+    margin: 30px auto;
     
-
 
     nav{
         display: flex;
         align-items: center;
         justify-content: center;
     }
+}
+
+    &-daily{
+        border-bottom: 4px solid white;
+        padding: 25px 0;
+
+        &-title{
+            text-align: center;
+
+            small{
+                font-size: 16px;
+                color: rgb(106, 106, 106);
+            }
+        }
+
+        &-card{
+            border: 2px solid white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+
+            .card-top{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                text-align: center;
+                margin: 15px 0;
+
+                &-brandName{
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+
+
+            .card-down{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 5px;
+                text-align: center;
+                text-transform: capitalize;
+            }
+        }
+
+    }
+
+
+    &-all{
+        margin-top: 50px;
+
+
+        &-title{
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .all{
+            background-color: var(--bc);
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+@media(max-width: 415px){
+    .xisobotlar{
+    
+    &-title{
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &-brands{
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    
+
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+}
 }

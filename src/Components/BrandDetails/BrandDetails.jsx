@@ -5,7 +5,7 @@ import { useBrand } from "../../Contexts/BrandContext/BrandContext";
 
 const BrandDetails = () => {
   const { id } = useParams();
-  const { brands } = useBrand();
+  const { brands, deleteProduct } = useBrand();
 
   const brand = brands?.find((b) => b.id == id);
 
@@ -23,8 +23,6 @@ const BrandDetails = () => {
         <div className="brandDetails-header-left">
             <h3>{brand.brandName}</h3>
         </div>
-
-
 
      <div className="brandDetails-header-right">
            <h3 className="brandDetails-header-right-title">yangi maxsulot</h3>
@@ -73,6 +71,11 @@ const BrandDetails = () => {
                 >
                   taxrir: ✍
                 </NavLink>
+                <button onClick={() => {
+                    if (window.confirm("Mahsulotni o‘chirmoqchimisiz?")) {
+                      deleteProduct(brand.id, product.id);
+                    }
+                  }}>удалит</button>
               </nav>
             </div>
           </div>
