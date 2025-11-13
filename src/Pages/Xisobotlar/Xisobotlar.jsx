@@ -83,9 +83,18 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
 
       <div className="xisobotlar-daily">
         <h2 className="xisobotlar-daily-title">
-          Bugungi <small>{today.toLocaleDateString("en-GB")}</small> dagi xisobotlar
+          Xisobotlar <small>{today.toLocaleDateString("en-GB")}</small>  
 
         </h2>
+
+
+          <div className="xisobotlar-daily-foydalar">
+            <p> maxsulot sotildi: {allSoldProducts}  </p>
+            <p> savdo {allItogo}$  </p>
+            <p> foyda {allProfits}$  </p>
+        </div>
+
+
 
         {todaySales.legth === 0 ? (
           <p>Bugun sotuv bolmadi!!!</p>
@@ -102,7 +111,7 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
               <div className="card-down">
                 <p>soni: <br /> {item.sellAmount}</p>
                 <p>kelishi: <br /> {item.cPrice}$</p>
-                <p>sotilishi: <br /> {item.sellPrice}$</p>
+                <p>sotildi: <br /> {item.sellPrice}$</p>
                 <p>itogo: <br /> {item.itogo}$</p>
                 <p>foyda: <br />{item.profit}$</p>
               </div>
@@ -110,17 +119,13 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
           ))
         )}
 
-        <div className="xisobotlar-daily-foydalar">
-            <p>bugun: {allSoldProducts} ta maxsulot sotildi</p>
-            <p>bugun: {allItogo}$ savdo boldi</p>
-            <p>bugun: {allProfits}$ foyda boldi</p>
-        </div>
+      
         
       </div>
 
         <div className="xisobotlar-all">
 
-            <h3 className="xisobotlar-all-title">jami xisobotlar</h3>
+            <h3 className="xisobotlar-all-title">umumiy xisobotlar</h3>
 
             {allSales.map((item, i) => (
                 <div key={i} className="xisobotlar-daily-card all" >
