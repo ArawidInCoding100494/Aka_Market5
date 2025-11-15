@@ -12,7 +12,9 @@ const BrandDetails = () => {
   if (!brand) return <p>brand topilmadi....</p>;
 
 
-  const totalAmounts = brand.products.reduce((acc, item) => acc + Number((item.currentAmount) || 0), 0)
+  const totalAmounts = brand.products.reduce((acc, item) => acc + (item.cAmount || 0), 0)
+
+  const totalcurrentAmounts = brand.products.reduce((acc, item) => acc + Number((item.currentAmount) || 0), 0)
 
   const totalSums = brand.products.reduce((acc, item) => acc + Number((item.itogo) || 0), 0)
 
@@ -36,13 +38,15 @@ const BrandDetails = () => {
 
       </div>
 
-      <h5>jami maxsulotlar soni: {totalAmounts} ta</h5>
+      <h5>jami kelgan soni: {totalAmounts}</h5>
+      <h5>ommborda jami: {totalcurrentAmounts} </h5>
       <h5>jami summa: {totalSums}$</h5>
 
       {brand.products.map((product) => {
 
-        if(product.cAmount <= 0){
-          return <p>{product.maxName} qolmadi</p>
+        if(product.currentAmount <= 0){
+          return <p style={{color: "red"}} 
+           >{product.maxName} Qolmadi</p>
         }
         
         return (
@@ -53,10 +57,10 @@ const BrandDetails = () => {
             </div>
             <div className="brandDetails-card-down">
               <p>
-                jami kelgani: <br /> {product.cAmount} ta
+                jami kelgani: <br /> {product.cAmount}
               </p>
               <p>
-                omborda: <br /> {product.currentAmount} ta{" "}
+                omborda: <br /> {product.currentAmount} {" "}
               </p>
               <p>
                 narxi: <br /> {product.cPrice}${" "}

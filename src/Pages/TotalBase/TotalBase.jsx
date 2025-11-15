@@ -37,7 +37,7 @@ const TotalBase = () => {
                 <nav key={brand.id} >
                     <NavLink className="totalBase-down-card"   to={`/brand/${brand.id}`} >
                     <h3>{brand.brandName}</h3>
-                    <p>jami: {brand.products.reduce((acc, item)=> acc + (Number(item.cAmount) || 0),0)} ta maxsulot bor</p>
+                    <p>jami: {brand.products.reduce((acc, item)=> acc + (Number(item.currentAmount) || 0),0)} maxsulot bor</p>
 
                     <p>jami: {brand.products.reduce((acc, item) => acc + (Number(item.itogo) || 0), 0)} sum</p>
                     </NavLink>
