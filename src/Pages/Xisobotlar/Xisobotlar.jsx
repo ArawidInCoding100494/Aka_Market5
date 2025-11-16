@@ -11,20 +11,24 @@ const Xisobotlar = () => {
   if (error) return <p>xatolik {error}</p>;
   if (!brands) return <p>brand kelmadi</p>;
 
- // helper: "DD/MM/YYYY" -> Date obyekt
+
+
 const parseDDMMYYYY = (str) => {
   if (!str) return null;
-  const parts = str.split("/").map(Number); // ["13","11","2025"]
+  const parts = str.split("/").map(Number);
   if (parts.length !== 3) return null;
   const [day, month, year] = parts;
   return new Date(year, month - 1, day);
 };
+
 
 const isSameDay = (d1, d2) =>
   d1 && d2 &&
   d1.getFullYear() === d2.getFullYear() &&
   d1.getMonth() === d2.getMonth() &&
   d1.getDate() === d2.getDate();
+
+
 
 
 const today = new Date();
@@ -52,10 +56,13 @@ const todaySales = allSales.filter((s) => {
   return isSameDay(sellDate, today);
 });
 
+
+
 // daily counts
 const allSoldProducts = todaySales.reduce((acc, item) => acc + (item.sellAmount || 0),0)
 const allItogo = todaySales.reduce((acc, item) => acc + (item.itogo || 0), 0)
 const allProfits = todaySales.reduce((acc, item) => acc + (item.profit || 0), 0)
+
 
 // all counts
 const totalSoldProducts = allSales.reduce((acc, item) => acc + (item.sellAmount || 0), 0)

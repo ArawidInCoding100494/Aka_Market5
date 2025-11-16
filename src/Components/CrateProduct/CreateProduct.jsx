@@ -74,27 +74,27 @@ const CreateProduct = () => {
 
 
           <label className="forma-label">
-            <span className="forma-label-span">nomi</span>
+            <span className="forma-label-span">nomi:</span>
             <input required ref={maxName} type="text" placeholder="nomi" className="forma-label-inp" />
           </label>
 
 
           <label className="forma-label">
-            <span className="forma-label-span">soni</span>
+            <span className="forma-label-span">soni:</span>
             <input onChange={handelchange} required ref={cAmount} type="number" placeholder="soni" className="forma-label-inp" />
           </label>
 
 
 
           <label className="forma-label">
-            <span className="forma-label-span">narxi</span>
+            <span className="forma-label-span">narxi:</span>
             <input onChange={handelchange} required ref={cPrice} type="number" placeholder="narxi" className="forma-label-inp" />
           </label>
 
 
           <div className="forma-label">
-            <p>itogp</p>
-            <p>{itogo} so'm</p>
+            <p>itogo:</p>
+            <p>{itogo}$</p>
           </div>
 
 
