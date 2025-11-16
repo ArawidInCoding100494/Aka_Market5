@@ -71,7 +71,7 @@ const XisobDetail = () => {
               soni: <br /> {item.sellAmount}
             </p>
 
-            <p>kelishi: <br /> {item.cPrice} </p>
+            <p style={{color: "gray"}} >kelishi: <br /> {item.cPrice}$ </p>
 
             <p>
               {" "}

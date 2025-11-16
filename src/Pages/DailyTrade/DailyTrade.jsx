@@ -17,7 +17,7 @@ const DailyTrade = () => {
 
   return (
     <div className="dailyTrade">
-      <h3 className="dailyTrade-title">maxsulotlar ro'yxati</h3>
+      <h3 className="dailyTrade-title">brendlar ro'yxati</h3>
      <div className="dailyTrade-cards container">
        {brands && brands.map((brand) => {
         return (

@@ -34,25 +34,36 @@ export const BrandProvider = ({ children }) => {
     getDate();
   }, []);
 
-  const deleteProduct = async (brandId, productId) => {
+const deleteProduct = async (brandId, productId) => {
   try {
-    const res = await fetch(`${url}/${brandId}/products/${productId}`, {
-      method: "DELETE",
+    // 1) Brandni olish
+    const res = await fetch(`${url}/${brandId}`);
+    const brand = await res.json();
+
+    // 2) Productni arraydan olib tashlash
+    const updatedProducts = brand.products.filter(p => p.id !== productId);
+
+    // 3) API ga PATCH bilan yangi products arrayni yuborish
+    await fetch(`${url}/${brandId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ products: updatedProducts })
     });
 
-    if (!res.ok) throw new Error("Serverdan xatolik keldi");
-
-    setbrands((prevBrands) =>
-      prevBrands.map((brand) =>
-        brand.id === brandId
-          ? { ...brand, products: brand.products.filter((p) => p.id !== productId) }
-          : brand
+    // 4) Local state ni ham yangilash
+    setbrands(prev =>
+      prev.map(b =>
+        b.id === brandId
+          ? { ...b, products: updatedProducts }
+          : b
       )
     );
+
   } catch (err) {
     console.error("O‘chirishda xatolik:", err);
   }
 };
+
 
 
   return (

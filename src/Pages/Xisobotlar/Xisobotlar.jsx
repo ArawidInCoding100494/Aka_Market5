@@ -110,7 +110,7 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
 
               <div className="card-down">
                 <p>soni: <br /> {item.sellAmount}</p>
-                <p>kelishi: <br /> {item.cPrice}$</p>
+                <p style={{color: "darkslategray"}}>kelishi: <br /> {item.cPrice}$</p>
                 <p>sotildi: <br /> {item.sellPrice}$</p>
                 <p>itogo: <br /> {item.itogo}$</p>
                 <p>foyda: <br />{item.profit}$</p>
@@ -137,7 +137,7 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
 
               <div className="card-down">
                 <p>soni: <br /> {item.sellAmount}</p>
-                <p>kelishi: <br /> {item.cPrice}$</p>
+                <p style={{color: "darkslategray"}} >kelishi: <br /> {item.cPrice}$</p>
                 <p>sotilishi: <br /> {item.sellPrice}$</p>
                 <p>itogo: <br /> {item.itogo}$</p>
                 <p>foyda: <br />{item.profit}$</p>

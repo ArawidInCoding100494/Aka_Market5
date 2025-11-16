@@ -44,13 +44,19 @@ const BrandDetails = () => {
 
       {brand.products.map((product) => {
 
-        if(product.currentAmount <= 0){
-          return <p style={{color: "red"}} 
-           >{product.maxName} Qolmadi</p>
-        }
+        
         
         return (
-          <div key={product.id} className="brandDetails-card">
+
+          <div key={product.id}
+          className={product.currentAmount > 0 
+            ? "brandDetails-card"
+            : "brandDetails-card-bacRed"
+          }
+           
+           >
+
+
             <div className="brandDetails-card-up">
               <h3>{product.maxName}</h3>
               <small>{product.sana}</small>
@@ -69,12 +75,23 @@ const BrandDetails = () => {
                 itogo: <br /> {product.itogo}$
               </strong>
               <nav>
-                <NavLink
+                {/* <NavLink
                   className="edit"
                   to={`/brand/${brand.id}/edit/${product.id}`}
                 >
                   taxrir: ✍
-                </NavLink>
+                </NavLink> */}
+
+                  {product.currentAmount > 0
+                  ? <NavLink
+                  className="edit"
+                  to={`/brand/${brand.id}/edit/${product.id}`}
+                >
+                  taxrir: ✍
+                </NavLink> 
+                : ""
+                  }
+
                 <button onClick={() => {
                     if (window.confirm("Mahsulotni o‘chirmoqchimisiz?")) {
                       deleteProduct(brand.id, product.id);
