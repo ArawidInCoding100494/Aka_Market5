@@ -39,7 +39,7 @@ const BrandDetails = () => {
       </div>
 
       <h5>jami kelgan soni: {totalAmounts}</h5>
-      <h5>ommborda jami: {totalcurrentAmounts} </h5>
+      <h5>omborda jami: {totalcurrentAmounts} </h5>
       <h5>jami summa: {totalSums}$</h5>
 
       {brand.products.map((product) => {
