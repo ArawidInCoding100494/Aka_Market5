@@ -16,10 +16,11 @@ const CreateProduct = () => {
   const [itogo, setItogo] = useState(0)
 
   const handelchange = () => {
-    const amount = Number(cAmount.current.value )
-    const price = Number(cPrice.current.value )
-    setItogo(amount * price)
-  }
+  const amount = Number(cAmount.current.value.replace(",", "."))
+  const price = Number(cPrice.current.value.replace(",", "."))
+  setItogo(amount * price)
+}
+
 
   const handelSubmit = async(e) =>{
     e.preventDefault()
@@ -66,6 +67,7 @@ const CreateProduct = () => {
     navigate(-1)
   }
 
+
   return (
     <div className="createProduct">
       <div className="createProduct-main">
@@ -88,7 +90,7 @@ const CreateProduct = () => {
 
           <label className="forma-label">
             <span className="forma-label-span">narxi:</span>
-            <input onChange={handelchange} required ref={cPrice} type="number" placeholder="narxi" className="forma-label-inp" />
+            <input onChange={handelchange} required ref={cPrice} type="number" step="0.01" placeholder="narxi" className="forma-label-inp" />
           </label>
 
 
