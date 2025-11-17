@@ -70,19 +70,22 @@ const TradeDetail = () => {
             prev.map(b => b.id === brand.id ? upDateBrand : b)
         )
 
-        
-
-
         amount.current[product.id].value =""
         price.current[product.id].value = ""
         alert("sotildi")
     }
 
 
+    const totalProducts = brand.products.reduce((acc, item) => acc + (item.cAmount || 0), 0)
+    const totalAmounts = brand.products.reduce((acc, item) => acc + (item.currentAmount || 0), 0)
+
+
   return (
     <div className="tradeDetail">
         <div className="tradeDetail-up">
             <h3 className="tradeDetail-up-title">{brand.brandName}</h3>
+            <h5>jami kelgani: {totalProducts}</h5>
+            <h5>omborda: {totalAmounts}</h5>
         </div>
 
         <div className="tradeDetail-down container">

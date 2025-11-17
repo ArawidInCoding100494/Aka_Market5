@@ -11,64 +11,103 @@ const Xisobotlar = () => {
   if (error) return <p>xatolik {error}</p>;
   if (!brands) return <p>brand kelmadi</p>;
 
+  const parseDDMMYYYY = (str) => {
+    if (!str) return null;
+    const parts = str.split("/").map(Number);
+    if (parts.length !== 3) return null;
+    const [day, month, year] = parts;
+    return new Date(year, month - 1, day);
+  };
+
+  const isSameDay = (d1, d2) =>
+    d1 &&
+    d2 &&
+    d1.getFullYear() === d2.getFullYear() &&
+    d1.getMonth() === d2.getMonth() &&
+    d1.getDate() === d2.getDate();
+
+  const today = new Date();
+
+  const allSales = brands.flatMap((brand) =>
+    brand.products.flatMap((product) =>
+      (product.history || [])
+        .filter((h) => h.type === "sell")
+        .map((sell) => ({
+          brandName: brand.brandName,
+          productName: product.maxName,
+          cPrice: product.cPrice,
+          sellAmount: sell.sellAmount,
+          sellPrice: sell.sellPrice,
+          itogo: sell.itogo,
+          profit: sell.profit,
+          sellSana: sell.sellSana,
+        }))
+    )
+  );
+
+  const todaySales = allSales.filter((s) => {
+    const sellDate = parseDDMMYYYY(s.sellSana);
+    return isSameDay(sellDate, today);
+  });
+
+  // daily counts
+  const allSoldProducts = todaySales.reduce(
+    (acc, item) => acc + (item.sellAmount || 0),
+    0
+  );
+  const allItogo = todaySales.reduce((acc, item) => acc + (item.itogo || 0), 0);
+  const allProfits = todaySales.reduce(
+    (acc, item) => acc + (item.profit || 0),
+    0
+  );
+
+  // all counts
+  const totalSoldProducts = allSales.reduce(
+    (acc, item) => acc + (item.sellAmount || 0),
+    0
+  );
+
+  const totalItogo = allSales.reduce((acc, item) => acc + (item.itogo || 0), 0);
+
+  const totalPrice = allSales.reduce(
+    (acc, item) => acc + (item.cPrice || 0),
+    0
+  );
+  const totalProfits = allSales.reduce(
+    (acc, item) => acc + (item.profit || 0),
+    0
+  );
+
+  const groupByDate = (sales) => {
+    return sales.reduce((acc, item) => {
+      const dateObj = parseDDMMYYYY(item.sellSana);
+      if (!dateObj) return acc;
+
+      const dateKey = dateObj.toLocaleDateString("en-GB");
+      if (!acc[dateKey]) acc[dateKey] = [];
+      acc[dateKey].push(item);
+
+      return acc;
+    }, {});
+  };
+
+  const groupedSales = groupByDate(allSales);
+
+  const sortedDates = Object.keys(groupedSales).sort(
+    (a, b) => parseDDMMYYYY(b) - parseDDMMYYYY(a)
+  );
 
 
-const parseDDMMYYYY = (str) => {
-  if (!str) return null;
-  const parts = str.split("/").map(Number);
-  if (parts.length !== 3) return null;
-  const [day, month, year] = parts;
-  return new Date(year, month - 1, day);
+  const getDayTotals = (sales) => {
+  const totalAmount = sales.reduce((acc, item) => acc + item.sellAmount, 0);
+  const totalItogo = sales.reduce((acc, item) => acc + item.itogo, 0);
+  const totalProfit = sales.reduce((acc, item) => acc + item.profit, 0);
+
+  return { totalAmount, totalItogo, totalProfit };
 };
 
 
-const isSameDay = (d1, d2) =>
-  d1 && d2 &&
-  d1.getFullYear() === d2.getFullYear() &&
-  d1.getMonth() === d2.getMonth() &&
-  d1.getDate() === d2.getDate();
 
-
-
-
-const today = new Date();
-
-const allSales = brands.flatMap((brand) =>
-  brand.products.flatMap((product) =>
-    (product.history || [])
-      .filter((h) => h.type === "sell")
-      .map((sell) => ({
-        brandName: brand.brandName,
-        productName: product.maxName,
-        cPrice: product.cPrice,
-        sellAmount: sell.sellAmount,
-        sellPrice: sell.sellPrice,
-        itogo: sell.itogo,
-        profit: sell.profit,
-        sellSana: sell.sellSana,
-      }))
-  )
-);
-
-
-const todaySales = allSales.filter((s) => {
-  const sellDate = parseDDMMYYYY(s.sellSana);
-  return isSameDay(sellDate, today);
-});
-
-
-
-// daily counts
-const allSoldProducts = todaySales.reduce((acc, item) => acc + (item.sellAmount || 0),0)
-const allItogo = todaySales.reduce((acc, item) => acc + (item.itogo || 0), 0)
-const allProfits = todaySales.reduce((acc, item) => acc + (item.profit || 0), 0)
-
-
-// all counts
-const totalSoldProducts = allSales.reduce((acc, item) => acc + (item.sellAmount || 0), 0)
-const totalItogo = allSales.reduce((acc, item) => acc + (item.itogo || 0), 0)
-const totalPrice = allSales.reduce((acc, item) => acc + (item.cPrice || 0), 0)
-const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
 
 
   return (
@@ -90,25 +129,20 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
 
       <div className="xisobotlar-daily">
         <h2 className="xisobotlar-daily-title">
-          Xisobotlar <small>{today.toLocaleDateString("en-GB")}</small>  
-
+          Xisobotlar <small>{today.toLocaleDateString("en-GB")}</small>
         </h2>
 
-
-          <div className="xisobotlar-daily-foydalar">
-            <p> maxsulot sotildi: {allSoldProducts}  </p>
-            <p> savdo {allItogo}$  </p>
-            <p> foyda {allProfits}$  </p>
+        <div className="xisobotlar-daily-foydalar">
+          <p> maxsulot sotildi: {allSoldProducts} </p>
+          <p> savdo {allItogo}$ </p>
+          <p> foyda {allProfits}$ </p>
         </div>
-
-
 
         {todaySales.legth === 0 ? (
           <p>Bugun sotuv bolmadi!!!</p>
         ) : (
           todaySales.map((item, i) => (
             <div key={i} className="xisobotlar-daily-card">
-
               <div className="card-top">
                 <h4 className="card-top-brandName">{item.brandName}</h4>
                 <h4>{item.productName}</h4>
@@ -116,21 +150,29 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
               </div>
 
               <div className="card-down">
-                <p>soni: <br /> {item.sellAmount}</p>
-                <p style={{color: "darkslategray"}}>kelishi: <br /> {item.cPrice}$</p>
-                <p>sotildi: <br /> {item.sellPrice}$</p>
-                <p>itogo: <br /> {item.itogo}$</p>
-                <p>foyda: <br />{item.profit}$</p>
+                <p>
+                  soni: <br /> {item.sellAmount}
+                </p>
+                <p style={{ color: "darkslategray" }}>
+                  kelishi: <br /> {item.cPrice}$
+                </p>
+                <p>
+                  sotildi: <br /> {item.sellPrice}$
+                </p>
+                <p>
+                  itogo: <br /> {item.itogo}$
+                </p>
+                <p>
+                  foyda: <br />
+                  {item.profit}$
+                </p>
               </div>
             </div>
           ))
         )}
-
-      
-        
       </div>
 
-        <div className="xisobotlar-all">
+      {/* <div className="xisobotlar-all">
 
             <h3 className="xisobotlar-all-title">umumiy xisobotlar</h3>
 
@@ -159,7 +201,68 @@ const totalProfits = allSales.reduce((acc, item) => acc + (item.profit || 0), 0)
                 <p>jami foyda: {totalProfits}$</p>
             </div>
 
+        </div> */}
+
+      <div className="xisobotlar-all">
+  <h3 className="xisobotlar-all-title">umumiy xisobotlar</h3>
+
+  {sortedDates.map(date => {
+    const daySales = groupedSales[date];
+    const { totalAmount, totalItogo, totalProfit } = getDayTotals(daySales);
+
+    return (
+      <div 
+      key={date} 
+      className="xisobotlar-date-group"
+      style={{
+        borderTop: "2px solid white", 
+        paddingTop: "15px", 
+        paddingBottom: "25px", 
+        marginTop: "25px"}}
+      >
+
+
+        <h4 className="date-title">{date}</h4>
+
+        {/* --- HAR KUNNING JAMI --- */}
+        <div className="day-summary">
+          <p> sotilgan mahsulotlar: <b>{totalAmount}</b></p>
+          <p> savdo: <b>{totalItogo}$</b></p>
+          <p> foyda: <b>{totalProfit}$</b></p>
         </div>
+
+        {/* --- O'SHA KUNNING BARCHA SAVDOLARI --- */}
+        {daySales.map((item, i) => (
+          <div key={i} className="xisobotlar-daily-card all">
+            <div className="card-top">
+              <h4 className="card-top-brandName">{item.brandName}</h4>
+              <h4>{item.productName}</h4>
+              <small>{item.sellSana}</small>
+            </div>
+
+            <div className="card-down">
+              <p>soni: <br /> {item.sellAmount}</p>
+              <p style={{color: "darkslategray"}}>kelishi: <br /> {item.cPrice}$</p>
+              <p>sotilishi: <br /> {item.sellPrice}$</p>
+              <p>itogo: <br /> {item.itogo}$</p>
+              <p>foyda: <br /> {item.profit}$</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  })}
+
+  {/* Umumiy jami */}
+  <div className="xisobotlar-all-xisobotlai">
+    <p>jami soni: {totalSoldProducts} ta</p>
+    <p>jami kelish summsi: {totalPrice}$</p>
+    <p>jami summa: {totalItogo}$</p>
+    <p>jami foyda: {totalProfits}$</p>
+  </div>
+</div>
+
+
 
     </div>
   );
