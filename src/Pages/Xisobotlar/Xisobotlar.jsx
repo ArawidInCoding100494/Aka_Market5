@@ -36,6 +36,7 @@ const Xisobotlar = () => {
           brandName: brand.brandName,
           productName: product.maxName,
           cPrice: product.cPrice,
+          currentAmount: product.currentAmount,
           sellAmount: sell.sellAmount,
           sellPrice: sell.sellPrice,
           itogo: sell.itogo,
@@ -163,8 +164,10 @@ const Xisobotlar = () => {
                   itogo: <br /> {item.itogo}$
                 </p>
                 <p>
-                  foyda: <br />
-                  {item.profit}$
+                  foyda: <br />{item.profit}$
+                </p>
+                <p style={{marginTop: "10px", paddingRight: "1px"}} >
+                  omborda: {item.currentAmount}
                 </p>
               </div>
             </div>
@@ -260,7 +263,7 @@ const Xisobotlar = () => {
     <p>jami summa: {totalItogo}$</p>
     <p>jami foyda: {totalProfits}$</p>
   </div>
-</div>
+      </div>
 
 
 

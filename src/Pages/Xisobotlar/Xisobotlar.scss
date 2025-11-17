@@ -60,7 +60,6 @@
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
                 gap: 5px;
-                text-align: center;
                 text-transform: capitalize;
             }
         }
@@ -115,5 +114,19 @@
         justify-content: center;
     }
 }
+
+    &-daily{
+
+
+        &-card{
+
+
+            .card-down{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    }
+
 }
 }
