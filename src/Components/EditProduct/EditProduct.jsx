@@ -10,6 +10,8 @@ const EditProduct = () => {
 
     const brand = brands.find(b => b.id == id)
     const product = brand?.products.find(p => p.id == productId)
+    
+    
 
     if(!product) return <p>product topilmadi</p>
 

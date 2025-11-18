@@ -12,7 +12,6 @@ import CreateProduct from './Components/CrateProduct/CreateProduct'
 import TradeDetail from "./Components/TradeDetail/TradeDetail"
 import DailyTrade from "./Pages/DailyTrade/DailyTrade"
 import Xisobotlar from './Pages/Xisobotlar/Xisobotlar'
-// import { SoldProvider } from './Contexts/SoldContex/SoldContex'
 import XisobDetail from './Components/XisobDetail/XisobDetail'
 
 function App() {
