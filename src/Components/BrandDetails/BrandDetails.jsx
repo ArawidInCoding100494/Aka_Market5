@@ -16,7 +16,26 @@ const BrandDetails = () => {
 
   const totalcurrentAmounts = brand.products.reduce((acc, item) => acc + Number((item.currentAmount) || 0), 0)
 
-  const totalSums = brand.products.reduce((acc, item) => acc + Number((item.itogo) || 0), 0)
+  const totalSums = Math.floor(  brand.products.reduce((acc, item) => acc + Number((item.itogo) || 0), 0) * 100) / 100
+
+  const yetztAllSums = Math.floor(
+  brand.products.reduce((acc, item) => {
+    const price = Number(item.cPrice) || 0;
+    const amount = Number(item.currentAmount) || 0;
+    const total = price * amount;
+    return acc + total;
+  }, 0) * 100
+) / 100;
+
+   const yetztItogo = Math.floor(
+  brand.products.reduce((acc, item) => {
+    const price = Number(item.cPrice) || 0;
+    const amount = Number(item.currentAmount) || 0;
+    const total = price * amount;
+    return acc + total;
+  }, 0) * 100
+) / 100;
+
 
   return (
     <div className="brandDetails container">
@@ -38,14 +57,19 @@ const BrandDetails = () => {
 
       </div>
 
-      <h5>jami kelgan soni: {totalAmounts}</h5>
-      <h5>omborda jami: {totalcurrentAmounts} </h5>
-      <h5>jami summa: {totalSums}$</h5>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <div>
+            <h5>omborda jami: {totalcurrentAmounts} </h5>
+            <h5>xozirgi summa: {yetztAllSums}$</h5>
+          </div>
+          <div>
+            <h5>jami kelgan soni: {totalAmounts}</h5>
+            <h5>jami summa: {totalSums}$</h5>
+          </div>
+          
+        </div>
 
       {brand.products.map((product) => {
-
-        
-        
         return (
 
           <div key={product.id}
@@ -72,15 +96,10 @@ const BrandDetails = () => {
                 narxi: <br /> {product.cPrice}${" "}
               </p>
               <strong>
-                itogo: <br /> {product.itogo}$
+                itogo: <br /> 
+                {(Math.floor(product.currentAmount * product.cPrice * 100) / 100)}$
               </strong>
               <nav>
-                {/* <NavLink
-                  className="edit"
-                  to={`/brand/${brand.id}/edit/${product.id}`}
-                >
-                  taxrir: ✍
-                </NavLink> */}
 
                   {product.currentAmount > 0
                   ? <NavLink

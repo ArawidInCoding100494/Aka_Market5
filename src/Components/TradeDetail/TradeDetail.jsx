@@ -21,7 +21,7 @@ const TradeDetail = () => {
     const soldPrice = Number(price.current[product.id]?.value || 0);
 
     if (soldAmount && soldPrice) {
-      const profit = (soldPrice - product.cPrice) * soldAmount;
+      const profit = Math.floor((soldPrice - product.cPrice) * soldAmount * 100) / 100;
       setProfitState((prev) => ({
         ...prev,
         [product.id]: profit,
@@ -147,6 +147,7 @@ const TradeDetail = () => {
                       ref={(el) => (price.current[product.id] = el)}
                       required
                       type="number"
+                      step="0.001"
                       className="forma-label-inp"
                       onChange={() => handleChange(product)}
                     />
@@ -154,7 +155,7 @@ const TradeDetail = () => {
 
                   {/* REAL-TIME PROFIT UI */}
                   <div className="forma-label">
-                    <span className="forma-label-span">profit:</span>
+                    <span className="forma-label-span">foyda:</span>
                     
                     <input
                         type="text"
@@ -162,11 +163,11 @@ const TradeDetail = () => {
                         onChange={(e) =>
                         setProfitState(prev => ({
                             ...prev,
-                            [product.id]: e.target.value   // User o‘zi o‘zgartiradi
+                            [product.id]: e.target.value   
                         }))
                         }
                         className="forma-label-inp"
-                        placeholder="profit..."
+                        placeholder="foyda..."
                     />
                     </div>
 

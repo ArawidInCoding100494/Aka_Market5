@@ -28,22 +28,11 @@ const XisobDetail = () => {
   );
 
 
-// ishlata olmadim
-  // const now = new Date();
-  // const currentMonth = now.getMonth() + 1;
-  // const currentYear = now.getFullYear();
-
-  // const monthlyProfit = selled
-  //   .filter((item) => {
-  //     const date = new Date(item.sellSana);
-  //     return (
-  //       date.getMonth() === currentMonth && date.getFullYear() === currentYear
-  //     );
-  //   })
-  //   .reduce((acc, item) => acc + (item.profit || 0), 0);
 
 
-  const totalProfit = selled.reduce((acc, item) => acc + (item.profit || 0), 0);
+ const totalProfit = Math.floor(
+  selled.reduce((acc, item) => acc + (Number(item.profit) || 0), 0) * 100
+) / 100;
 
 
 
@@ -55,7 +44,7 @@ const XisobDetail = () => {
           <strong>{brand.brandName}</strong> xisobotlari
         </h4>
 
-        <h5>jami foyda: {totalProfit}</h5>
+        <h5>jami foyda: {  totalProfit}</h5>
 
       </div>
 

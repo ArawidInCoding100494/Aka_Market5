@@ -190,6 +190,7 @@ const Xisobotlar = () => {
     <div className="xisobotlar container">
       <h3 className="xisobotlar-title">brendlar boyicha xisobotlar</h3>
 
+{/* ---------brendlar boyicha xisobotlar ------------------------------------ */}
       <div className="xisobotlar-brands">
         {brands.map((brand) => (          
           <nav key={brand.id}>
@@ -202,7 +203,9 @@ const Xisobotlar = () => {
           </nav>
         ))}
       </div>
+{/* ------------------------------------------------------------------------- */}
 
+{/* ------------kunlik xisobotlar----------------------------------------------------------------- */}
       <div className="xisobotlar-daily">
         <h2 className="xisobotlar-daily-title">
           Xisobotlar <small>{today.toLocaleDateString("en-GB")}</small>
@@ -256,6 +259,10 @@ const Xisobotlar = () => {
           ))
         )}
       </div>
+{/* ------------------------------------------------------------------------------------------------- */}
+
+
+{/*----------------------- umumuy xisobotlar -------------------------------------------- */}
 
       <div className="xisobotlar-all">
         <h3 className="xisobotlar-all-title">umumiy xisobotlar</h3>
@@ -314,10 +321,21 @@ const Xisobotlar = () => {
                     <p>
                       itogo: <br /> {item.itogo}$
                     </p>
-                    <p>
-                      foyda: <br />
-                      {item.profit}$
-                    </p>
+                       <p
+                        style={{
+                          color:
+                          item.profit > 0 ? ""
+                          : item.profit <= 0 ? "red" : "red"
+                        }}
+                        >
+                          foyda: <br />
+                          {item.profit }$
+                        </p>
+
+                        <p style={{ marginTop: "10px", paddingRight: "1px" }}>
+                          omborda: <br /> {item.currentAmount}
+                        </p>
+                    
                   </div>
                 </div>
               ))}
@@ -332,6 +350,7 @@ const Xisobotlar = () => {
           <p>jami foyda: {totalProfits}$</p>
         </div>
       </div>
+{/* --------------------------------------------------------------------------------------- */}
     </div>
   );
 };

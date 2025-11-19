@@ -39,7 +39,14 @@ const TotalBase = () => {
                     <h3>{brand.brandName}</h3>
                     <p>jami: {brand.products.reduce((acc, item)=> acc + (Number(item.currentAmount) || 0),0)} maxsulot bor</p>
 
-                    <p>jami: {brand.products.reduce((acc, item) => acc + (Number(item.itogo) || 0), 0)} sum</p>
+                    <p>
+                        jami: {
+                            Math.floor(
+                            brand.products.reduce((acc, item) => acc + (Number(item.itogo) || 0), 0) * 100
+                            ) / 100
+                        } $
+                        </p>
+
                     </NavLink>
                 </nav>
             ))}

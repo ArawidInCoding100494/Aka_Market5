@@ -18,7 +18,7 @@ const CreateProduct = () => {
   const handelchange = () => {
   const amount = Number(cAmount.current.value.replace(",", "."))
   const price = Number(cPrice.current.value.replace(",", "."))
-  setItogo(amount * price)
+  setItogo(Math.floor((amount * price) * 100) /100)
 }
 
 
