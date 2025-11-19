@@ -59,12 +59,12 @@ const BrandDetails = () => {
 
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
           <div>
-            <h5>omborda jami: {totalcurrentAmounts} </h5>
-            <h5>xozirgi summa: {yetztAllSums}$</h5>
+            <h5>Omborda bor soni: {totalcurrentAmounts} </h5>
+            <h5>Xozirgi summa: {yetztAllSums}$</h5>
           </div>
           <div>
-            <h5>jami kelgan soni: {totalAmounts}</h5>
-            <h5>jami summa: {totalSums}$</h5>
+            <h5>Umumiy kelgan soni: {totalAmounts}</h5>
+            <h5>Umumiy summa: {totalSums}$</h5>
           </div>
           
         </div>
