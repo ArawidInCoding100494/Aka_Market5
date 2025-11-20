@@ -61,7 +61,7 @@ const BrandDetails = () => {
           <div>
             <h5>Omborda jami maxsulotlar: {totalcurrentAmounts} </h5>
             <h5>Xozirgi summa: {yetztAllSums}$</h5>
-            <h5>Mahsulotlar soni: {brand.products.length} xil</h5>
+            <h5>Mahsulotlar turi: {brand.products.length} xil</h5>
           </div>
           <div>
             <h5>Umumiy kelgan soni: {totalAmounts}</h5>
