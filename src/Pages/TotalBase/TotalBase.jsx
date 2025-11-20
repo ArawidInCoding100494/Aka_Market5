@@ -37,7 +37,11 @@ const TotalBase = () => {
                 <nav key={brand.id} >
                     <NavLink className="totalBase-down-card"   to={`/brand/${brand.id}`} >
                     <h3>{brand.brandName}</h3>
-                    <p>jami: {brand.products.reduce((acc, item)=> acc + (Number(item.currentAmount) || 0),0)} maxsulot bor</p>
+                    <p>omborida </p>
+                    <p>{brand.products.length} xil</p>
+                    <p> 
+                    {brand.products.reduce((acc, item)=> acc + (Number(item.currentAmount) || 0),0)} ta </p>
+                    <p>maxsulotlar bor</p>
 
                     <p>
                         jami: {
