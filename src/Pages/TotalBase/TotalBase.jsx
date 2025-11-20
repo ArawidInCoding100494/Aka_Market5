@@ -1,4 +1,4 @@
-import { NavLink, Link, useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import "./TotalBase.scss"
 
 import { useBrand } from "../../Contexts/BrandContext/BrandContext"

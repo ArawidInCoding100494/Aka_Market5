@@ -102,14 +102,14 @@ const TradeDetail = () => {
   );
 
   return (
-    <div className="tradeDetail">
+    <div className="tradeDetail container">
       <div className="tradeDetail-up">
         <h3 className="tradeDetail-up-title">{brand.brandName}</h3>
         <h5>jami kelgani: {totalProducts}</h5>
         <h5>omborda: {totalAmounts}</h5>
       </div>
 
-      <div className="tradeDetail-down container">
+      <div className="tradeDetail-down ">
         {brand.products.map((product) => {
           if (product.currentAmount > 0) {
             return (
@@ -155,7 +155,9 @@ const TradeDetail = () => {
 
                   {/* REAL-TIME PROFIT UI */}
                   <div className="forma-label">
-                    <span className="forma-label-span">foyda:</span>
+                    <span style={{marginBottom: "10px"}}
+                    className="forma-label-span">foyda:
+                        </span>
                     
                     <input
                         type="text"

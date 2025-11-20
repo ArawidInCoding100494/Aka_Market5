@@ -41,8 +41,8 @@ const BrandDetails = () => {
     <div className="brandDetails container">
       <div className="brandDetails-header">
 
-        <div className="brandDetails-header-left">
-            <h3>{brand.brandName}</h3>
+        <div className="brandDetails-header-left" style={{borderBottom: "4px solid cadetblue"}}>
+            <h3 >{brand.brandName}</h3>
         </div>
 
      <div className="brandDetails-header-right">
@@ -59,8 +59,9 @@ const BrandDetails = () => {
 
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
           <div>
-            <h5>Omborda bor soni: {totalcurrentAmounts} </h5>
+            <h5>Omborda jami maxsulotlar: {totalcurrentAmounts} </h5>
             <h5>Xozirgi summa: {yetztAllSums}$</h5>
+            <h5>Mahsulotlar soni: {brand.products.length} xil</h5>
           </div>
           <div>
             <h5>Umumiy kelgan soni: {totalAmounts}</h5>
@@ -111,7 +112,9 @@ const BrandDetails = () => {
                 : ""
                   }
 
-                <button onClick={() => {
+                <button 
+                className="btn" 
+                onClick={() => {
                     if (window.confirm("Mahsulotni o‘chirmoqchimisiz?")) {
                       deleteProduct(brand.id, product.id);
                     }
