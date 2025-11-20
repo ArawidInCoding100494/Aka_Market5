@@ -90,7 +90,7 @@ const CreateProduct = () => {
 
           <label className="forma-label">
             <span className="forma-label-span">narxi:</span>
-            <input onChange={handelchange} required ref={cPrice} type="number" step="0.01" placeholder="narxi" className="forma-label-inp" />
+            <input onChange={handelchange}  ref={cPrice} type="number" step="0.01" placeholder="narxi" className="forma-label-inp" />
           </label>
 
 
