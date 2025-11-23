@@ -13,7 +13,7 @@ const TradeDetail = () => {
 
   const amount = useRef({});
   const price = useRef({});
-  const [profitState, setProfitState] = useState({}); // REAL-TIME PROFIT
+  const [profitState, setProfitState] = useState({}); 
 
   // Real-time profit hisoblash
   const handleChange = (product) => {
@@ -147,7 +147,7 @@ const TradeDetail = () => {
                       ref={(el) => (price.current[product.id] = el)}
                       required
                       type="number"
-                      step="0.001"
+                      step="0.01"
                       className="forma-label-inp"
                       onChange={() => handleChange(product)}
                     />
