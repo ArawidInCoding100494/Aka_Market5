@@ -175,11 +175,13 @@ const Xisobotlar = () => {
     (acc, item) => acc + (item.sellAmount || 0),
     0
   );
-  const totalItogo = allSales.reduce((acc, item) => acc + (item.itogo || 0), 0);
-  const totalPrice = allSales.reduce(
+  
+  const totalItogo = Math.floor(allSales.reduce((acc, item) => acc + (item.itogo || 0), 0) * 100 ) / 100;
+
+  const totalPrice = Math.floor(allSales.reduce(
     (acc, item) => acc + (item.cPrice || 0),
     0
-  );
+  ) * 100) /100;
   const totalProfits = allSales.reduce(
     (acc, item) => acc + (item.profit || 0),
     0
