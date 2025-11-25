@@ -80,7 +80,7 @@ const BrandDetails = () => {
 
   const filteredProducts = selectedDateStr
     ? brand.products.filter((p) => normalizeDate(p.sana) === selectedDateStr)
-    : brand.products;
+    : brand.products;    
 
   return (
     <div className="brandDetails container">

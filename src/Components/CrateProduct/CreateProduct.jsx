@@ -13,6 +13,7 @@ const CreateProduct = () => {
   const maxName = useRef()
   const cAmount = useRef()
   const cPrice = useRef()
+  const [sana, setSana] = useState(new Date().toISOString().slice(0, 10)); // YYYY-MM-DD format
   const [itogo, setItogo] = useState(0)
 
   const handelchange = () => {
@@ -33,17 +34,18 @@ const CreateProduct = () => {
       currentAmount: Number(cAmount.current.value),
       cPrice: Number(cPrice.current.value),
       itogo,
-      sana: new Date().toLocaleDateString("uz-UZ"),
+      sana, // foydalanuvchi tanlagan sana
       history: [
         {
           type: "add",
           addAmount: Number(cAmount.current.value),
           addPrice: Number(cPrice.current.value),
           itogo,
-          sana: new Date().toLocaleDateString("uz-UZ")
+          sana, // foydalanuvchi tanlagan sana
         }
       ]
     }
+
 
     const res = await fetch(`https://json-api.uz/api/project/AkaMarket/brands/${id}`)
     const brand = await res.json()
@@ -92,6 +94,17 @@ const CreateProduct = () => {
             <span className="forma-label-span">narxi:</span>
             <input onChange={handelchange}  ref={cPrice} type="number" step="0.01" placeholder="narxi" className="forma-label-inp" />
           </label>
+
+          <label className="forma-label">
+            <span className="forma-label-span">sana:</span>
+            <input 
+              type="date" 
+              value={sana} 
+              onChange={(e) => setSana(e.target.value)} 
+              className="forma-label-inp"
+            />
+          </label>
+
 
 
           <div className="forma-label">

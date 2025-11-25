@@ -125,16 +125,15 @@ const Xisobotlar = () => {
   };
 
   // Umumiy xisobotlar
-  const totalSoldProducts = Math.floor(allSales.reduce((acc, item) => acc + (item.sellAmount || 0) * 100) / 100,
-    0
-  );
+  const totalSoldProducts = Math.floor(allSales.reduce((acc, item) => acc + (item.sellAmount || 0), 0) * 100) / 100;
   const totalItogo = Math.floor(allSales.reduce((acc, item) => acc + (item.itogo || 0), 0) * 100) / 100;
-  const totalPrice = Math.floor(allSales.reduce((acc, item) => acc + (item.cPrice || 0) * 100) / 100,
+
+  const totalPrice = Math.floor(allSales.reduce((acc, item) => acc + (item.cPrice || 0) ,
     0
-  );
-  const totalProfits = Math.floor(allSales.reduce((acc, item) => acc + (item.profit || 0) * 100) / 100,
+  ) * 100) /100;
+  const totalProfits = Math.floor(allSales.reduce((acc, item) => acc + (item.profit || 0) ,
     0
-  );
+  ) * 100 ) / 100;
 
   // --- JSX ---
   return (
@@ -243,7 +242,7 @@ const Xisobotlar = () => {
                       </p>
                       <p>
                         {" "}
-                        itogo: <br /> {item.itogo}${" "}
+                        itogo: <br /> {item.itogo.toFixed(2)}${" "}
                       </p>
                       <p style={{ color: item.profit > 0 ? "" : "red" }}>
                         foyda: <br /> {item.profit}$
